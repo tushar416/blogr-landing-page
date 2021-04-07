@@ -1,0 +1,188 @@
+// header
+header {
+  display: flex;
+  padding: 2.5rem 2rem;
+  button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    @include flex-center(column);
+    align-items: flex-start;
+    transition: all 0.3s ease-out;
+
+    padding: 0.6rem 0.8rem;
+    visibility: hidden;
+    border-radius: 5px;
+    z-index: 1;
+    transform: translate(1rem, 1rem);
+    a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+
+      &:hover {
+        font-weight: 800;
+      }
+    }
+  }
+  .dropbtn {
+    margin-left: 2rem;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px solid #fff;
+    }
+  }
+  .dropdown {
+    picture img {
+      width: auto;
+      transition: all 0.3s ease-in;
+      margin-left: 4px;
+      height: auto;
+    }
+    &:hover picture img {
+      transform: rotate(180deg);
+    }
+    &:hover .dropdown-content {
+      visibility: visible;
+    }
+  }
+
+  .btn-signup {
+    padding: 1rem 2rem !important;
+  }
+  .head {
+    @include flex-center(row);
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    .menu-navs {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+    }
+    .dropdown-div {
+      display: flex;
+    }
+    .logo {
+      margin-right: 4rem;
+    }
+  }
+}
+
+// intro
+#intro {
+  margin: 0 auto;
+  text-align: center;
+  background-image: url("../images/bg-pattern-intro.svg"),
+    linear-gradient(to right, $Verylightred, $Lightred);
+  background-position: 25% center, 0 0;
+  background-repeat: no-repeat;
+  color: #fff;
+  padding-bottom: 2rem;
+
+  .btn {
+    padding: 1rem 1.5rem;
+    font-weight: 800;
+    border-radius: 25px;
+    color: #fff;
+    margin-right: 1rem;
+    transition: all ease-in 0.3s;
+  }
+  .btn-white {
+    background-color: #fff;
+    color: $Lightred;
+    &:hover {
+      background-color: $Lightred;
+      color: #fff;
+    }
+  }
+  .btn-transparent {
+    background-color: transparent;
+    border: 1px solid #fff;
+    &:hover {
+      background-color: #fff;
+      color: $Lightred;
+    }
+  }
+  .content-div {
+    margin: 8rem auto;
+    padding-right: 0;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 300;
+  }
+  p {
+    margin: 1.5rem auto 4rem;
+    color: #fff;
+  }
+}
+@include media(930px) {
+  header {
+    button {
+      display: block !important;
+    }
+    .head {
+      .menu-navs {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-radius: 25px;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 2rem;
+        color: #000;
+        .dropdown-content {
+          position: relative;
+          background-color: hsl(240, 8%, 89%);
+          display: none;
+          transform: translate(0);
+        }
+        .dropdown-div {
+          flex-direction: column;
+
+          .dropdown {
+            margin-bottom: 2rem;
+            &:hover .dropdown-content {
+              display: block;
+            }
+          }
+        }
+        .btn-div {
+          border-top: 1px solid $Grayishblue;
+          padding-top: 1rem;
+          margin: 1rem 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .btn {
+            margin-right: 0 !important;
+          }
+          .btn-login {
+            color: #000 !important;
+            margin: 0;
+          }
+          .btn-signup {
+            background-color: $Lightred !important;
+            color: #fff !important;
+            width: 150px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
